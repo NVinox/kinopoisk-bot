@@ -1,5 +1,5 @@
-import { BotCommand } from "telegraf/typings/core/types/typegram";
+import { BotCommand } from "telegraf/typings/core/types/typegram"
 
 export interface ICommands {
-  get(): readonly BotCommand[];
+  get(): readonly BotCommand[]
 }

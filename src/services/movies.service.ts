@@ -1,8 +1,8 @@
-import { StringHelper } from "../helpers/string.helper";
-import { DateHelper } from "../helpers/date.helper";
-import { PaginationHelper } from "../helpers/pagination.helper";
-import { IMovieSearchDoc } from "../interfaces/movie.interface";
-import { PHOTO_TEMPLATE } from "../constants/images.constants";
+import { StringHelper } from "../helpers/string.helper"
+import { DateHelper } from "../helpers/date.helper"
+import { PaginationHelper } from "../helpers/pagination.helper"
+import { IMovieSearchDoc } from "../interfaces/movie.interface"
+import { PHOTO_TEMPLATE } from "../constants/images.constants"
 
 export class MoviesService {
   constructor(
@@ -13,18 +13,18 @@ export class MoviesService {
 
   getPhoto(): string {
     if (this.movie?.poster?.previewUrl) {
-      return this.movie.poster.previewUrl;
+      return this.movie.poster.previewUrl
     }
 
     if (this.movie?.poster?.url) {
-      return this.movie.poster.url;
+      return this.movie.poster.url
     }
 
     if (this.movie?.logo?.url) {
-      return this.movie.logo.url;
+      return this.movie.logo.url
     }
 
-    return PHOTO_TEMPLATE;
+    return PHOTO_TEMPLATE
   }
 
   getPhotoCaption(): string {
@@ -35,59 +35,59 @@ export class MoviesService {
       this.getMovieLength(),
       StringHelper.cutText(this.getDescription()),
       PaginationHelper.getProgress(this.currentPage, this.totalPages)
-    );
+    )
   }
 
   private getMovieTitle(): string {
-    let title = "";
+    let title = ""
 
     if (this.movie.name) {
-      title = this.movie.name;
+      title = this.movie.name
     }
 
     if (this.movie.year) {
-      title += ` (${this.movie.year})`;
+      title += ` (${this.movie.year})`
     }
 
-    return title;
+    return title
   }
 
   private getMovieLength(): string {
     if (this.movie.movieLength) {
       return `Продолжительность: ${new DateHelper().convertMinutesToString(
         this.movie.movieLength
-      )}`;
+      )}`
     }
-    return "";
+    return ""
   }
 
   private getGenres(): string {
     if (this.movie.genres.length) {
       return `Жанр: ${this.movie.genres
         .reduce<string[]>((acc, genre) => {
-          acc.push(genre.name);
-          return acc;
+          acc.push(genre.name)
+          return acc
         }, [])
-        .join(", ")}`;
+        .join(", ")}`
     }
-    return "";
+    return ""
   }
 
   private getDescription(): string {
-    return this.getShortDescription() || this.getLongDescription();
+    return this.getShortDescription() || this.getLongDescription()
   }
 
   private getLongDescription(): string {
     if (this.movie.description) {
-      return `Описание: ${this.movie.description}`;
+      return `Описание: ${this.movie.description}`
     }
-    return "";
+    return ""
   }
 
   private getShortDescription(): string {
     if (this.movie.shortDescription) {
-      return `Описание: ${this.movie.shortDescription}`;
+      return `Описание: ${this.movie.shortDescription}`
     }
-    return "";
+    return ""
   }
 }

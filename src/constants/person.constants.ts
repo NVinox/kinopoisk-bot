@@ -1,1 +1,1 @@
-export const ENTER_PERSON_TITLE = "Введите имя личности:";
+export const ENTER_PERSON_TITLE = "Введите имя личности:"

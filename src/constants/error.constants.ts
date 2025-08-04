@@ -1,1 +1,1 @@
-export const INTERNAL_MESSAGE = "Упс, произошла ошибка!";
+export const INTERNAL_MESSAGE = "Упс, произошла ошибка!"

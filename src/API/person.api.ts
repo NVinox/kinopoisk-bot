@@ -1,10 +1,10 @@
-import axios from "axios";
-import { ConfigService } from "../config/config.service";
-import { IPersonSearchResponse } from "../interfaces/person.interface";
+import axios from "axios"
+import { ConfigService } from "../config/config.service"
+import { IPersonSearchResponse } from "../interfaces/person.interface"
 import {
   API_PERSON_URL,
   API_PERSON_SEARCH_URL,
-} from "../constants/api.constants";
+} from "../constants/api.constants"
 
 const API_INSTANCE = axios.create({
   baseURL: API_PERSON_URL,
@@ -12,7 +12,7 @@ const API_INSTANCE = axios.create({
     "X-API-KEY": new ConfigService().get("X-API-KEY"),
     "Content-Type": "application/json",
   },
-});
+})
 
 export class APIPerson {
   static async search(
@@ -25,8 +25,8 @@ export class APIPerson {
         page,
         limit: 1,
       },
-    });
+    })
 
-    return data;
+    return data
   }
 }

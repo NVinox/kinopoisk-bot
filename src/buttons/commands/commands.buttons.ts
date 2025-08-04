@@ -1,5 +1,5 @@
-import { BotCommand } from "telegraf/typings/core/types/typegram";
-import { ICommands } from "../../interfaces/commands.interface";
+import { BotCommand } from "telegraf/typings/core/types/typegram"
+import { ICommands } from "../../interfaces/commands.interface"
 import {
   HELP_COMMAND,
   MOVIE_SEARCH_COMMAND,
@@ -7,7 +7,7 @@ import {
   HELP_DESCRIPTION,
   MOVIE_SEARCH_DESCRIPTION,
   PERSON_SEARCH_DESCRIPTION,
-} from "../../constants/commands.constants";
+} from "../../constants/commands.constants"
 
 export class CommandsButtons implements ICommands {
   get(): readonly BotCommand[] {
@@ -24,6 +24,6 @@ export class CommandsButtons implements ICommands {
         command: HELP_COMMAND,
         description: HELP_DESCRIPTION,
       },
-    ];
+    ]
   }
 }

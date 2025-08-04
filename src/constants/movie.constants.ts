@@ -1,1 +1,1 @@
-export const ENTER_MOVIE_TITLE = "Введите название фильма:";
+export const ENTER_MOVIE_TITLE = "Введите название фильма:"

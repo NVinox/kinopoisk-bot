@@ -1,5 +1,5 @@
-import { Markup, Telegraf } from "telegraf";
-import { IBotContext } from "../interfaces/context.interface";
+import { Markup } from "telegraf"
+import { IBotContext } from "../interfaces/context.interface"
 
 export class AsyncMessage {
   static async sendWithProgress<T>(
@@ -7,16 +7,16 @@ export class AsyncMessage {
     ctx: IBotContext,
     isDeleteKeyboard: boolean = true
   ) {
-    let messageId: number;
+    let messageId: number
     if (isDeleteKeyboard) {
       messageId = (await ctx.reply("Идет поиск...", Markup.removeKeyboard()))
-        .message_id;
+        .message_id
     } else {
-      messageId = (await ctx.reply("Идет поиск...")).message_id;
+      messageId = (await ctx.reply("Идет поиск...")).message_id
     }
-    const data = await cb();
-    await ctx.deleteMessage(messageId);
+    const data = await cb()
+    await ctx.deleteMessage(messageId)
 
-    return data;
+    return data
   }
 }
